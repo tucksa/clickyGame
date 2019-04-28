@@ -1,0 +1,9 @@
+nav {
+    background-image: url('../../images/light-veneer.png');
+    color: #e5771e;
+    position: fixed;
+}
+
+span {
+    padding:2%;
+}
