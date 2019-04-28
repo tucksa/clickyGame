@@ -12,7 +12,10 @@ class App extends Component {
 
   state = {
     shuffledPics: pictureData,
-    isClicked:[1]
+    isClicked:[13],
+    response:"",
+    score:0,
+    topScore:0
   };
   
   Clicked= id => {
@@ -93,28 +96,45 @@ class App extends Component {
         shuffled.push(pics[i]);
         pics.splice(i,1)
     }
-    console.log(this.state.isClicked)
+   
     for(let i=0; i<this.state.isClicked.length; i++){
-      console.log(this.state.isClicked[i])
-      console.log(id)
-      
       if(this.state.isClicked[i]=== id){
+        var newTopScore;
+        let newResponse = "wrong...";
+        let clicked= [13];
+        console.log(this.state.topScore)
+        this.state.score> this.state.topScore? newTopScore = this.state.score: console.log("you suck")
+        let newScore= 0;
+        //console.log(newTopScore)
+        this.setState({
+          shuffledPics: shuffled,
+          isClicked: clicked,
+          score: newScore,
+          topScore: newTopScore,
+          response: newResponse
+        })
         return console.log("you lost")
       }else{
-        var clicked= this.state.isClicked.concat(id)
+        let clicked= this.state.isClicked.concat(id)
+        let newScore= this.state.score+1;
+        let newTopScore= this.state.topScore;
+        let newResponse = "correct!";
+        this.setState({
+          shuffledPics: shuffled,
+          isClicked: clicked,
+          score: newScore,
+          topScore: newTopScore,
+          response: newResponse
+        })
       } 
     }
  
-    this.setState({
-      shuffledPics: shuffled,
-      isClicked: clicked
-    })
   }
 
   render(){
     return (
       <div>
-          <Navbar/>
+          <Navbar style={{flex:1}}score= {this.state.score} topScore= {this.state.topScore} response= {this.state.response}/>
           <Jumbotron/>
           <Wrapper>
             {this.state.shuffledPics.map(picture => (
