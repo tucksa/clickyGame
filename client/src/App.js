@@ -117,13 +117,11 @@ class App extends Component {
       }else{
         let clicked= this.state.isClicked.concat(id)
         let newScore= this.state.score+1;
-        let newTopScore= this.state.topScore;
         let newResponse = "correct!";
         this.setState({
           shuffledPics: shuffled,
           isClicked: clicked,
           score: newScore,
-          topScore: newTopScore,
           response: newResponse
         })
       } 
