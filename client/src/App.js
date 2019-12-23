@@ -132,19 +132,19 @@ class App extends Component {
   render(){
     return (
       <div>
-          <Navbar style={{flex:1}}score= {this.state.score} topScore= {this.state.topScore} response= {this.state.response}/>
-          <Jumbotron/>
-          <Wrapper>
-            {this.state.shuffledPics.map(picture => (
-              <Pictures
-                clicked= {this.Clicked}
-                id = {picture.id}
-                name= {picture.name}
-                image= {picture.src}
-              />
-            ))}
-          </Wrapper>
-          <Footer/>
+        <Jumbotron/>
+        <Navbar style={{flex:1}}score= {this.state.score} topScore= {this.state.topScore} response= {this.state.response}/>
+        <Wrapper>
+          {this.state.shuffledPics.map(picture => (
+            <Pictures
+              clicked= {this.Clicked}
+              id = {picture.id}
+              name= {picture.name}
+              image= {picture.src}
+            />
+          ))}
+        </Wrapper>
+        <Footer/>
       </div>
     );
   } 

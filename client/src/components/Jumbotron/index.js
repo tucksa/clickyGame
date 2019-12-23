@@ -7,7 +7,8 @@ var myStyle = {
     backgroundPosition: "center",
     backgroundSize: "100%",
     backgroundColor: "#e5771e",
-    color: "white"
+    color: "white",
+    marginBottom: "0px"
 }
 
 function Jumbotron(){
